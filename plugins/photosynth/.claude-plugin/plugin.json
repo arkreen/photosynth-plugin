@@ -1,0 +1,8 @@
+{
+  "name": "photosynth",
+  "version": "0.1.0",
+  "description": "Offset your Claude Code agent's electricity as green energy (kWh) on Arkreen — one automatic offset per period via a Stop hook.",
+  "author": { "name": "Arkreen", "url": "https://www.arkreen.com" },
+  "homepage": "https://photosynth.fengdeagents.site",
+  "keywords": ["arkreen", "carbon-offset", "green-energy", "sustainability", "depin"]
+}

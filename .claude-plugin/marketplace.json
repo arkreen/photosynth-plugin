@@ -1,0 +1,14 @@
+{
+  "name": "photosynth",
+  "description": "Photosynth — turn your Claude Code agent's electricity into green-energy offsets on Arkreen.",
+  "owner": { "name": "Arkreen", "url": "https://www.arkreen.com" },
+  "plugins": [
+    {
+      "name": "photosynth",
+      "source": "./plugins/photosynth",
+      "description": "A Stop hook that estimates your agent's electricity from tokens and offsets it as green energy (kWh) on Arkreen. Run /photosynth:setup <wallet> after install.",
+      "version": "0.1.0",
+      "author": { "name": "Arkreen" }
+    }
+  ]
+}
