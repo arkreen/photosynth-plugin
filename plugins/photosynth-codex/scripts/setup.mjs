@@ -17,7 +17,7 @@ if (!args.wallet) {
 const CODEX_HOME = process.env.CODEX_HOME || path.join(os.homedir(), '.codex');
 const DIR = path.join(CODEX_HOME, 'photosynth');
 const CONFIG_PATH = path.join(DIR, 'config.json');
-const endpoint = args.endpoint || 'https://photosynth.fengdeagents.site';
+const endpoint = args.endpoint || 'https://photosynth.arkreen.com';
 const interval = Number(args.interval) || 86400;
 const threshold = Number(args.threshold) || 2000;
 

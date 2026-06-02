@@ -11,12 +11,12 @@ If `$ARGUMENTS` is empty, ask the user for their wallet address and stop here.
 Otherwise, run exactly this command and show the user its output:
 
 ```bash
-node "${CLAUDE_PLUGIN_ROOT}/scripts/setup.mjs" --wallet "$ARGUMENTS" --endpoint https://photosynth.fengdeagents.site
+node "${CLAUDE_PLUGIN_ROOT}/scripts/setup.mjs" --wallet "$ARGUMENTS" --endpoint https://photosynth.arkreen.com
 ```
 
 On success, tell the user:
 - Photosynth is now active; it will automatically offset their agent's electricity once per day.
-- They can watch activity on the live dashboard: https://photosynth.fengdeagents.site/dashboard
+- They can watch activity on the live dashboard: https://photosynth.arkreen.com/dashboard
 - If the hook does not seem to fire, suggest running `/reload-plugins`.
 - To offset hourly instead of daily (e.g. for testing), re-run with an extra `--interval 3600`.
 
