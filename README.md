@@ -4,7 +4,7 @@
 
 A `Stop` hook estimates your agent's AI-inference electricity from token counts and, once per period, settles a renewable-energy offset on Arkreen via the hosted Photosynth backend.
 
-🌍 Live site & dashboard: **https://photosynth.fengdeagents.site**
+🌍 Live site & dashboard: **https://photosynth.arkreen.com**
 
 ---
 
@@ -93,11 +93,11 @@ To offset hourly instead of daily, append `--interval 3600` to the setup command
 
 ## Privacy
 
-Only **token counts, model names, and a time range** are ever sent — never your prompts, conversations, file paths, or code. The estimation method and every coefficient are public: see **https://photosynth.fengdeagents.site/methodology**.
+Only **token counts, model names, and a time range** are ever sent — never your prompts, conversations, file paths, or code. The estimation method and every coefficient are public: see **https://photosynth.arkreen.com/methodology**.
 
 ## How energy is estimated
 
-`E(kWh) = Σ_model ( output_tokens × e_out[model] ) / 1000`, computed server-side from published per-model figures. Full details and sources: https://photosynth.fengdeagents.site/methodology
+`E(kWh) = Σ_model ( output_tokens × e_out[model] ) / 1000`, computed server-side from published per-model figures. Full details and sources: https://photosynth.arkreen.com/methodology
 
 ## Contents
 

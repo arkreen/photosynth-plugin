@@ -15,7 +15,7 @@ if (!args.wallet) {
 
 const DIR = path.join(os.homedir(), '.kimi', 'photosynth');
 const CONFIG_PATH = path.join(DIR, 'config.json');
-const endpoint = args.endpoint || 'https://photosynth.fengdeagents.site';
+const endpoint = args.endpoint || 'https://photosynth.arkreen.com';
 const interval = Number(args.interval) || 86400;
 const threshold = Number(args.threshold) || 2000;
 
