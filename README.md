@@ -1,4 +1,4 @@
-# Photosynth (Claude Code & Kimi Code CLI plugin)
+# Photosynth (Claude Code, OpenAI Codex CLI & Kimi Code CLI plugin)
 
 > Let your AI agent "photosynthesize" for the planet — estimate the electricity it consumes and offset it as green energy (kWh) on [Arkreen](https://www.arkreen.com/).
 
@@ -22,6 +22,32 @@ In Claude Code:
 ```
 
 `/photosynth:setup` registers your wallet (Arkreen membership check), retrieves an auth token, and writes `~/.claude/photosynth/config.json` — no manual `settings.json` editing. To offset hourly instead of daily, append `--interval 3600`.
+
+---
+
+## OpenAI Codex CLI
+
+### Install
+
+[OpenAI Codex CLI](https://github.com/openai/codex) has a native `Stop` hook system (`~/.codex/hooks.json`).
+
+```bash
+# 1. Clone this repo and run the installer
+git clone https://github.com/arkreen/photosynth-plugin.git
+cd photosynth-plugin/plugins/photosynth-codex/scripts
+node install.mjs
+
+# 2. Register your wallet
+node setup.mjs --wallet 0xYourWallet
+```
+
+The installer will:
+- Copy `hook.mjs` and `setup.mjs` into `~/.codex/photosynth/`
+- Merge a `Stop` command hook into `~/.codex/hooks.json` (idempotent; existing entries preserved)
+
+On your next `codex` run, the TUI will prompt you to **TRUST the new hook** — accept it, or type `/hooks` to review. This is a one-time Codex-specific UX, separate from registration.
+
+To offset hourly instead of daily, append `--interval 3600` to the setup command.
 
 ---
 
@@ -61,9 +87,9 @@ To offset hourly instead of daily, append `--interval 3600` to the setup command
 
 ## What it does
 
-- **Measure** — reads your local session transcript (Claude) or logs (Kimi) to count output tokens (only counts, never content).
+- **Measure** — reads your local session transcript (Claude), rollout JSONL (Codex), or logs (Kimi) to count output tokens (only counts, never content).
 - **Offset** — once per period, reports usage to the backend, which retires the matching green energy on Arkreen (down to milliwatt-hours).
-- **Feedback** — shows a quiet note when an offset completes (Claude); writes to stderr logs (Kimi).
+- **Feedback** — shows a quiet note when an offset completes (Claude); writes to stderr logs (Codex, Kimi).
 
 ## Privacy
 
@@ -83,6 +109,10 @@ plugins/photosynth/
   scripts/hook.mjs                # estimate tokens → offset once per period + show result
   scripts/setup.mjs               # /photosynth:setup backend (register + write config)
   commands/setup.md               # the /photosynth:setup command
+plugins/photosynth-codex/
+  scripts/hook.mjs                # Codex Stop hook (parses ~/.codex/sessions/.../rollout-*.jsonl)
+  scripts/setup.mjs               # Codex setup (writes ~/.codex/photosynth/config.json)
+  scripts/install.mjs             # Codex installer (merges ~/.codex/hooks.json)
 plugins/photosynth-kimi/
   scripts/hook.mjs                # Kimi Stop hook (scans ~/.kimi/logs/)
   scripts/setup.mjs               # Kimi setup (writes ~/.kimi/photosynth/config.json)
