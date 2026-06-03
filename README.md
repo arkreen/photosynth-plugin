@@ -23,6 +23,13 @@ In Claude Code:
 
 `/photosynth:setup` registers your wallet (Arkreen membership check), retrieves an auth token, and writes `~/.claude/photosynth/config.json` — no manual `settings.json` editing. To offset hourly instead of daily, append `--interval 3600`.
 
+### Commands
+
+After install, the plugin provides two slash commands:
+
+- `/photosynth:setup 0xYourWallet` — one-time wallet registration + config (covered above).
+- `/photosynth:share` — open the X (Twitter) compose window pre-filled with your lifetime offset stats (kWh retired, session count, tagged `@arkreen_network`). Uses Twitter Web Intent — no Twitter API authorization is required from either us or you. Tip: `/ph<Tab>sh<Tab>` is enough to invoke it.
+
 ---
 
 ## OpenAI Codex CLI
