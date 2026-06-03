@@ -15,7 +15,7 @@ A `Stop` hook estimates your agent's AI-inference electricity from token counts 
 In Claude Code:
 
 ```
-/plugin marketplace add arkreen/photosynth-plugin
+/plugin marketplace add https://github.com/arkreen/photosynth-plugin.git
 /plugin install photosynth@photosynth
 /reload-plugins
 /photosynth:setup 0xYourWallet
