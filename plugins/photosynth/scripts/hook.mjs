@@ -84,7 +84,7 @@ async function maybeOffset(input, config, state, now, period) {
     request_id: crypto.randomUUID(),
     time_range: timeRange,
     usage_by_model: usageByModel,
-    client: { plugin_version: config.plugin_version ?? '0.1.0' },
+    client: { plugin_version: config.plugin_version ?? '0.1.0', cli_kind: 'claude' },
   };
 
   const res = await postOffset(config, payload);

@@ -76,7 +76,7 @@ async function maybeOffset(input, config, state, now, period) {
     request_id: crypto.randomUUID(),
     time_range: timeRange,
     usage_by_model: usageByModel,
-    client: { plugin_version: config.plugin_version ?? '0.1.0', platform: 'kimi-cli' },
+    client: { plugin_version: config.plugin_version ?? '0.1.0', platform: 'kimi-cli', cli_kind: 'kimi' },
   };
 
   const res = await postOffset(config, payload);
